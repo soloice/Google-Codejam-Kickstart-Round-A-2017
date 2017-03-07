@@ -10,10 +10,17 @@ This is a math problem. For each possible shape, you just need to figure out the
 Problem B
 -----------
 
-Dynamic programming. **The tricky part is, you may want to replace a '*' with 4 '?'s, where '?' can match 0~1 normal character.** With such trick, the transition equations are simplified significantly.
+Dynamic programming. **The tricky part is, you may want to replace a '*' with 4 '?'s, where '?' can match 0~1 normal character.** With such trick, the transition equations are simplified significantly. Time complexity and space complexity are both `O(N^2)`.
 
 
 Problem C
 -----------
 
-Solve by `bisection method`. Given the bounding box of all stars, the two cubes must be put to opposite vertices to make them small enough. One just need to enumerate 4 possible pairs of opposite vertices, i.e.: (xmin, ymin, zmin) vs. (xmax, ymax, zmax), (xmax, ymin, zmin) vs. (xmin, ymax, zmax), (xmin, ymax, zmin) vs. (xmax, ymin, zmax), (xmax, ymax, zmin) vs. (xmin, ymin, zmax).
+Solve by `bisection method`. Given the bounding box of all stars, the two cubes must be put to opposite vertices to make them small enough. One just need to enumerate 4 possible pairs of opposite vertices, i.e.: 
+
+- (xmin, ymin, zmin) vs. (xmax, ymax, zmax), 
+- (xmax, ymin, zmin) vs. (xmin, ymax, zmax), 
+- (xmin, ymax, zmin) vs. (xmax, ymin, zmax), 
+- (xmax, ymax, zmin) vs. (xmin, ymin, zmax).
+
+Space complexity: `O(1)`; Time complexity: `O(N*log(Range))`, where `Range` is the maximum edge length of the bounding box of all stars, which is 10^8.
